@@ -1,10 +1,22 @@
 package com.ameykolhe.average_income_calculator.entity;
 
+import com.opencsv.bean.CsvBindByName;
+
 public class IncomeRecord {
+	
+	@CsvBindByName(column="City")
 	private String city;
+	
+	@CsvBindByName(column="Country")
 	private String country;
+	
+	@CsvBindByName(column="Gender")
 	private String gender;
+	
+	@CsvBindByName(column="Currency")
 	private String currency;
+	
+	@CsvBindByName(column="Average Income")
 	private double averageIncome;
 	
 	public String getCity() {

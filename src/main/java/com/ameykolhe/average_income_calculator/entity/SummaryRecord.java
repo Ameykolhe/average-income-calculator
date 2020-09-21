@@ -2,9 +2,17 @@ package com.ameykolhe.average_income_calculator.entity;
 
 import java.util.Comparator;
 
+import com.opencsv.bean.CsvBindByPosition;
+
 public class SummaryRecord implements Comparable<SummaryRecord>{
+
+	@CsvBindByPosition(position=0)
 	private String countryOrCity;
+	
+	@CsvBindByPosition(position=1)
 	private String gender;
+	
+	@CsvBindByPosition(position=2)
 	private double averageIncome;
 	
 	public SummaryRecord(String countryOrCity, String gender) {
@@ -30,6 +38,12 @@ public class SummaryRecord implements Comparable<SummaryRecord>{
 	}
 	public void setAverageIncome(double averageIncome) {
 		this.averageIncome = averageIncome;
+	}
+	
+	@Override
+	public String toString() {
+		return "SummaryRecord [countryOrCity=" + countryOrCity + ", gender=" + gender + ", averageIncome="
+				+ averageIncome + "]";
 	}
 	
 	@Override

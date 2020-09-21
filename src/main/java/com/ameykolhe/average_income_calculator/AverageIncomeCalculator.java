@@ -24,7 +24,18 @@ public class AverageIncomeCalculator {
 		currencyConversionRate.put("HKD", 1/8.0);
 		
 		incomeRecords.forEach(  incomeRecord -> {
-			String countryOrCity = incomeRecord.getCountry() != null ? incomeRecord.getCountry(): incomeRecord.getCity();
+			
+			String countryOrCity = "";
+			
+			if (incomeRecord.getCountry() == null) {
+				countryOrCity = incomeRecord.getCity();
+			}
+			else if (incomeRecord.getCountry().equals("")) {
+				countryOrCity = incomeRecord.getCity();
+			}
+			else {
+				countryOrCity = incomeRecord.getCountry();
+			}
 			String gender = incomeRecord.getGender();
 			SummaryRecord summaryRecord = new SummaryRecord(countryOrCity, gender);
 			
@@ -42,6 +53,7 @@ public class AverageIncomeCalculator {
 		
 		
 		List<SummaryRecord> summaryRecords = new ArrayList<>();
+	
 		accumulator.forEach( (key, value) -> {
 			key.setAverageIncome(value.getFirst()/value.getSecond());
 			summaryRecords.add(key);
