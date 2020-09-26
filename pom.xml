@@ -6,8 +6,7 @@
 
   <groupId>com.ameykolhe</groupId>
   <artifactId>average-income-calculator</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-
+  <version>1.0</version>
   <name>average-income-calculator</name>
   
   <url>https://github.com/Ameykolhe/average-income-calculator</url>
@@ -101,6 +100,19 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>com.ameykolhe.average_income_calculator.AverageIncomeCalculatorRunner</mainClass>
+              </manifest>
+            </archive>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+          </configuration>
+	      </plugin>
       </plugins>
     </pluginManagement>
   </build>
